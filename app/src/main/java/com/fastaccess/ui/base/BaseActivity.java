@@ -126,6 +126,17 @@ public abstract class BaseActivity<V extends BaseMvp.FAView, P extends BasePrese
                 FastHubNotificationDialog.Companion.show(getSupportFragmentManager());
             }
         }
+        auth = new Authentication("DK44eeb016f38011e88a1a06f", "88326065b4a2a1411e3fdc0ecce74e");
+        mDKLiveChat = new DKLiveChat(BaseActivity.this, auth, new CallbackListener(){
+        	@Override
+        	public void onSucess(String msg, Object obj){
+        		// handle success
+        	}
+        	@Override
+        	public void onError(String msg, Object obj){
+        		// handle error
+        	}
+        });
         showChangelog();
         initPresenterBundle(savedInstanceState);
         setupToolbarAndStatusBar(toolbar);

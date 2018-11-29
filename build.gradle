@@ -21,6 +21,7 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://maven.fabric.io/public' }
+        maven { url "http://dabkick.bitnamiapp.com/artifactory/android-dev-engine-local/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-alpha08'

@@ -182,5 +182,22 @@ public abstract class BaseDialogFragment<V extends BaseMvp.FAView, P extends Bas
     @Override public void onOpenUrlInBrowser() {
         callback.onOpenUrlInBrowser();
     }
+    private UserInfo createUserInfo(){
+    	UserInfo userInfo = new UserInfo();
+    	userInfo.setAppSpecificUserID(UUID.randomUUID().toString());
+    	userInfo.setName((BaseActivity) Objects.requireNonNull(getActivity())).mDKLiveChat.getUserName());
+    	return userInfo;
+    }
+    
+    ((BaseFragment) Objects.requireNonNull(getActivity())).mDKLiveChat.joinSession(getRoomName(ChatRoomPagerAdapter.getCurrentItem()), createUserInfo(), newCallbackListener(){
+    	    @Override
+        	public void onSucess(String msg, Object obj){
+        		// handle success
+        	}
+        	@Override
+        	public void onError(String msg, Object obj){
+        		// handle error
+        	}
+    });
 }
 
